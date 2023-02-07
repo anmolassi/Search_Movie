@@ -26,7 +26,8 @@ $("div").delegate(".add-to-fav", "click", function (event) {
   localStorage.zmap = JSON.stringify(zmap);
   if(search_page)
   {
-    list();
+    event.target.className="remove-fav fa-solid fa-heart";
+      event.target.style="color:red;font-size:25px";
   }
   else{
     console.log(event.target)
@@ -41,7 +42,8 @@ $("div").delegate(".remove-fav", "click", function (event) {
   localStorage.zmap = JSON.stringify(zmap);
   if(search_page)
   {
-    list();
+    event.target.className="add-to-fav fa-regular fa-heart";
+    event.target.style="color:white;font-size:25px";
   }
   else{
     event.target.className="add-to-fav fa-regular fa-heart";
