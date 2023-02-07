@@ -116,7 +116,7 @@ $("ul").delegate(".open-detail", "mouseenter", function (event) {
     }
    }); 
 });
-$("body").delegate("#back-search", "click", async function (event) {
+$("body").delegate("#back-search", "click", function (event) {
   event.preventDefault();
   search_page=true;
   document.getElementById("do-the-change").innerHTML = `
@@ -341,7 +341,6 @@ function display_poster_list() {
         if (opt) {
           for (let o in opt) {
             if (!zmap[`${opt[o].imdbID}`]) {
-              console.log(o, opt[o]);
               $("#list-view").append(
                 `<div s="${opt[o].imdbID}" class="open-detail picture-list-item">
                 <img src='${opt[o].Poster}' s="${opt[o].imdbID}" class="open-detail">
@@ -382,7 +381,6 @@ function displayfavorites() {
       
     </div><div id="loading"></div><div id='list-view'></div>
     `;
-    console.log(zmap);
     for (const key in zmap) {
       $.ajax({
         url: `https://www.omdbapi.com/?i=${key}&apikey=b893eb1`,
