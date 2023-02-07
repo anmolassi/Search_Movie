@@ -29,7 +29,9 @@ $("div").delegate(".add-to-fav", "click", function (event) {
     list();
   }
   else{
-    display_poster_list();
+    console.log(event.target)
+      event.target.className="remove-fav fa-solid fa-heart";
+      event.target.style="color:red;font-size:25px";
   }
 });
 $("div").delegate(".remove-fav", "click", function (event) {
@@ -42,7 +44,8 @@ $("div").delegate(".remove-fav", "click", function (event) {
     list();
   }
   else{
-    display_poster_list();
+    event.target.className="add-to-fav fa-regular fa-heart";
+    event.target.style="color:white;font-size:25px";
   }
 });
 // to restore back from basic display of info of movie on hover on movie name
