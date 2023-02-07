@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Movie</title>
+    <link rel="shortcut icon" href="/assests/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/f7d8e8c4f0.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="background-wallpaper"></div>
+    <div id="do-the-change">
+      <div id="main"class="column-flex">
+        <form action="">
+          <div id="nav-bar">
+            <div><img src="/assests/logo.png" alt="" width="80vw"></div>
+            <div style="display: flex">
+              <input type="text" placeholder="movie" value="" id="search-movie" />
+              <button type="submit" id="search-btn">Search</button>
+            </div>
+            <button id="favourites">Fav Movies</button>
+          </div>
+        </form>
+        <div id="loading"></div>
+        <div class="row-flex">
+          <ul></ul>
+          <div id="hover-poster">
+            <div id="container">
+              <div><img src="" id="poster-display" /></div>
+              <div id="details-container">
+                <div id="Metascore"></div>
+                <div id="imdbRating"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="js/index.js"></script>
+  </body>
+</html>
