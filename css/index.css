@@ -17,6 +17,7 @@ body {
   overflow: hidden;
   background: black;
   position: fixed;
+  margin-left: 200px;
   transform: skew(-20deg, -20deg) scale(2, 2);
   z-index: -1000;
 }
