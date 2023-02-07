@@ -45,7 +45,7 @@ $("div").delegate(".remove-fav", "click", function (event) {
     display_poster_list();
   }
 });
-// .mouseleave( handlerOut )
+// to restore back from basic display of info of movie on hover on movie name
 $("ul").delegate(".open-detail", "mouseleave", function (event) {
   console.log(event.target.getAttribute("s"));
   var imgwidth;
@@ -65,6 +65,7 @@ $("ul").delegate(".open-detail", "mouseleave", function (event) {
     }, 10 * i);
   }
 });
+// to show movie info, when you hover on the movie name
 $("ul").delegate(".open-detail", "mouseenter", function (event) {
   console.log(event.target.getAttribute("s"));
   $.ajax({
@@ -109,12 +110,6 @@ $("ul").delegate(".open-detail", "mouseenter", function (event) {
      $("#loading").css("display",'none');
     }
    }); 
-  // $.get(
-  //   ,
-  //   function (data) {
-      
-  //   }
-  // );
 });
 $("body").delegate("#back-search", "click", async function (event) {
   event.preventDefault();
@@ -228,7 +223,6 @@ $("body").delegate(".open-detail", "click", function (event) {
           <br />
         </div>
       </div>`;
-          // backWallpaper();
         }
       },
       complete:function(data){
@@ -239,7 +233,6 @@ $("body").delegate(".open-detail", "click", function (event) {
 });
 // HOME_PAGE
 function list() {
-  // moviesFav=localStorage.getItem('movieFavourites')
   zmap = JSON.parse(localStorage.zmap);
   lastSearch = search.val();
   localStorage.setItem("lastname", `${lastSearch}`);
@@ -254,10 +247,8 @@ function list() {
     success:function (data) {
       let opt = data.Search;
       document.getElementsByTagName("ul")[0].innerHTML = "";
-      // document.getElementsByTagName("div")[0].innerHTML = "";
       if (opt) {
         for (let o in opt) {
-          // if (!moviesFav.get(`${opt[o].imdbID}`))
           if (!zmap[`${opt[o].imdbID}`]) {
             $("ul").append(
               `<li s="${opt[o].imdbID}" class="open-detail">
@@ -305,6 +296,7 @@ function backWallpaper() {
     );
   }
 }
+//window loader, on very first opening of website
 window.onload = function () {
   search.val(lastSearch);
   if (localStorage.zmap == undefined) {
@@ -313,11 +305,13 @@ window.onload = function () {
   backWallpaper();
   list();
 };
+//search button caller
 $("#nav-bar").delegate("#search-btn", "click", function (event) {
   event.preventDefault();
   search_page=false;
   display_poster_list();
 });
+// display poster list on clicking search button
 function display_poster_list() {
   zmap = JSON.parse(localStorage.zmap);
   lastSearch = search.val();
@@ -372,12 +366,6 @@ function display_poster_list() {
        $("#loading").css("display",'none');
       }
      }); 
-  // $.get(
-  //   ,
-  //   function (data) {
-      
-  //   }
-  // );
 }
 //function to display favourites
 function displayfavorites() {
