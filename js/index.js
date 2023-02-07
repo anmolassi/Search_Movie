@@ -119,7 +119,7 @@ $("body").delegate("#back-search", "click", async function (event) {
   search_page=true;
   document.getElementById("do-the-change").innerHTML = `
   <div id="main"class="column-flex">
-        <form action="">
+        <form action="" >
           <div id="nav-bar">
             <div><img src="assests/logo.png" alt="" width="80vw"></div>
             <div style="display: flex">
