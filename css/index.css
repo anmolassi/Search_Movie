@@ -1,6 +1,8 @@
 body {
   margin: 0;
   background-color: black;
+  display: flex;
+  justify-content: center;
   color: azure;
   width: 100vw;
   overflow-x: hidden;
