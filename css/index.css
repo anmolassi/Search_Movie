@@ -97,6 +97,7 @@ li {
   background-color: black;
   width: 100vw;
   height: 60px;
+  margin-bottom: 3px;
 }
 .column-flex {
   display: flex;
@@ -114,6 +115,7 @@ li {
   background-color: red;
   width: 10vw;
   height: 41.9px;
+  cursor:pointer;
   color: white;
 }
 @keyframes sizechanger {

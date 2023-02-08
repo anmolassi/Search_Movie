@@ -51,7 +51,7 @@ $("div").delegate(".remove-fav", "click", function (event) {
   }
 });
 // to restore back from basic display of info of movie on hover on movie name
-$("ul").delegate(".open-detail", "mouseleave", function (event) {
+$("body").delegate(".open-detail", "mouseleave", function (event) {
   console.log(event.target.getAttribute("s"));
   var imgwidth;
   var imgheight;
@@ -71,13 +71,14 @@ $("ul").delegate(".open-detail", "mouseleave", function (event) {
   }
 });
 // to show movie info, when you hover on the movie name
-$("ul").delegate(".open-detail", "mouseenter", function (event) {
+$("body").delegate(".open-detail", "mouseenter", function (event) {
   console.log(event.target.getAttribute("s"));
   $.ajax({
     url: `https://www.omdbapi.com/?i=${event.target.getAttribute("s")}&plot=full&apikey=b893eb1`,
     type: 'get',
     beforeSend: function(){
       $("#loading").css("display",'block');
+      $("#nav-bar").css("margin-bottom",'0px');
     },
     success: function(data){
       $("#poster-display").attr("src", `${data.Poster}`);
@@ -113,13 +114,14 @@ $("ul").delegate(".open-detail", "mouseenter", function (event) {
     },
     complete:function(data){
      $("#loading").css("display",'none');
+     $("#nav-bar").css("margin-bottom",'3px');
     }
    }); 
 });
 $("body").delegate("#back-search", "click", function (event) {
   event.preventDefault();
   search_page=true;
-  document.getElementById("do-the-change").innerHTML = `
+  $("#do-the-change").html(`
   <div id="main"class="column-flex">
         <form action="" >
           <div id="nav-bar">
@@ -145,14 +147,14 @@ $("body").delegate("#back-search", "click", function (event) {
           </div>
         </div>
       </div>
-    `;
+    `);
   search = $("#search-movie");
   search.val(lastSearch);
   list();
 });
 
 // to open page for details of the movie
-$("body").delegate(".open-detail", "click", function (event) {
+$("body").delegate(".open-detail, .picture-list-item", "click", function (event) {
   if (event.target.tagName != "I") {
     console.log(event.target.getAttribute("s"));
     let searchID = event.target.getAttribute("s");
@@ -161,6 +163,7 @@ $("body").delegate(".open-detail", "click", function (event) {
       type: 'get',
       beforeSend: function(){
         $("#loading").css("display",'block');
+        $("#nav-bar").css("margin-bottom",'0px');
       },
       success: function(data){
         if (data.Plot != undefined) {
@@ -232,6 +235,7 @@ $("body").delegate(".open-detail", "click", function (event) {
       },
       complete:function(data){
        $("#loading").css("display",'none');
+       $("#nav-bar").css("margin-bottom",'3px');
       }
      });  
   }
@@ -248,6 +252,7 @@ function list() {
     type:'get',
     beforeSend:function(){
       $("#loading").css("display",'block');
+      $("#nav-bar").css("margin-bottom",'0px');
     },
     success:function (data) {
       let opt = data.Search;
@@ -274,6 +279,7 @@ function list() {
     },
     complete:function(data){
       $("#loading").css("display",'none');
+      $("#nav-bar").css("margin-bottom",'3px');
     }
   })
 }
@@ -311,7 +317,7 @@ window.onload = function () {
   list();
 };
 //search button caller
-$("#nav-bar").delegate("#search-btn", "click", function (event) {
+$("body").delegate("#search-btn", "click", function (event) {
   event.preventDefault();
   search_page=false;
   display_poster_list();
@@ -334,6 +340,7 @@ function display_poster_list() {
       type: 'get',
       beforeSend: function(){
         $("#loading").css("display",'block');
+        $("#nav-bar").css("margin-bottom",'0px');
       },
       success: function(data){
         let opt = data.Search;
@@ -342,9 +349,9 @@ function display_poster_list() {
           for (let o in opt) {
             if (!zmap[`${opt[o].imdbID}`]) {
               $("#list-view").append(
-                `<div s="${opt[o].imdbID}" class="open-detail picture-list-item">
-                <img src='${opt[o].Poster}' s="${opt[o].imdbID}" class="open-detail">
-                <span style="margin-left:8px" s="${opt[o].imdbID}"class="open-detail">${opt[o].Title}</span>
+                `<div s="${opt[o].imdbID}" class=" picture-list-item">
+                <img src='${opt[o].Poster}' s="${opt[o].imdbID}" class="">
+                <span style="margin-left:8px" s="${opt[o].imdbID}"class="">${opt[o].Title}</span>
                 <span style="margin-right:8px;">
                 <i s="${opt[o].imdbID}" s="${opt[o].imdbID}"class="add-to-fav fa-regular fa-heart" style="color:white;font-size:25px">
                 </i>
@@ -354,7 +361,7 @@ function display_poster_list() {
               );
             } else {
               $("#list-view").append(
-                `<div s="${opt[o].imdbID}" class="open-detail picture-list-item">
+                `<div s="${opt[o].imdbID}" class=" picture-list-item">
                 <img src='${opt[o].Poster}' s="${opt[o].imdbID}" style="width:19vw;
                 height: 50vh;">
                 <span style="margin-left:8px" s="${opt[o].imdbID}" >${opt[o].Title}</span>
@@ -368,6 +375,7 @@ function display_poster_list() {
       },
       complete:function(data){
        $("#loading").css("display",'none');
+       $("#nav-bar").css("margin-bottom",'3px');
       }
      }); 
 }
@@ -387,6 +395,7 @@ function displayfavorites() {
         type: 'get',
         beforeSend: function(){
           $("#loading").css("display",'block');
+          $("#nav-bar").css("margin-bottom",'0px');
         },
         success: function(data){
           $("#list-view").append(
@@ -403,6 +412,7 @@ function displayfavorites() {
         },
         complete:function(data){
          $("#loading").css("display",'none');
+         $("#nav-bar").css("margin-bottom",'3px');
         }
        }); 
     }
