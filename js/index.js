@@ -399,9 +399,9 @@ function displayfavorites() {
         },
         success: function(data){
           $("#list-view").append(
-            `<div s="${data.imdbID}" id="${data.imdbID}" class="open-detail picture-list-item">
-            <img src='${data.Poster}' s="${data.imdbID}" class="open-detail">
-            <span style="margin-left:8px" s="${data.imdbID}"class="open-detail">${data.Title}</span>
+            `<div s="${data.imdbID}" id="${data.imdbID}" class="picture-list-item">
+            <img src='${data.Poster}' s="${data.imdbID}" class="">
+            <span style="margin-left:8px" s="${data.imdbID}"class="">${data.Title}</span>
             <span style="margin-right:8px;">
             <i s="${data.imdbID}" s="${data.imdbID}"class="remove-fav-favpage fa-solid fa-heart" style="color:red;font-size:25px">
             </i>
