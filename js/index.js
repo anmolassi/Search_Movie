@@ -301,12 +301,17 @@ setInterval(function () {
 function backWallpaper() {
   var wall = $("#background-wallpaper");
   document.getElementById("background-wallpaper").innerHTML = "";
-  for (let i = 0; i < 220; i++) {
-    wall.append(
-      `<img class="card-overlay"onerror='this.style.display = "none"' src="https://randommer.io/images/movies/${
-        Math.floor(Math.random() * (1500 - 13 + 1)) + 13
-      }.webp" alt="hi">`
-    );
+  for (let i = 0; i < 90; i++) {
+    // wall.append(
+    //   `<img class="card-overlay"onerror='this.style.display = "none"' src="https://randommer.io/images/movies/${
+    //     Math.floor(Math.random() * (1500 - 13 + 1)) + 13
+    //   }.webp" alt="hi">`
+    // );
+    $.get("https://anmol-assi-api.onrender.com/getRandomImage",function(data){
+      wall.append(
+        `<img class="card-overlay"onerror='this.style.display = "none"' src=${data.path} alt="hi">`
+      );
+    })
   }
 }
 //window loader, on very first opening of website
@@ -423,3 +428,4 @@ function displayfavorites() {
     });
   }
 }
+// https://anmol-assi-api.onrender.com/getRandomImage
