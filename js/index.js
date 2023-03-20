@@ -171,7 +171,7 @@ $("body").delegate(
             var searchYoutube=data.Title;
             searchYoutube=searchYoutube.replace(" ","%20");
             var id;
-            var url="https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyCzhURMeIgi3My9kkefx5gWTWY3pjg2qnc&q="+searchYoutube+"%20trailer&type=video&part=snippet&videoEmbeddable=true"
+            var url="https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyCzhURMeIgi3My9kkefx5gWTWY3pjg2qnc&q="+searchYoutube+"%20trailer"+data.Year+"&type=video&part=snippet&videoEmbeddable=true"
             var dat=await $.get(url)
             id=dat.items[0].id.videoId;
             document.getElementById("do-the-change").innerHTML = `
