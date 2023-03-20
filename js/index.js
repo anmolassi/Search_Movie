@@ -166,8 +166,14 @@ $("body").delegate(
           $("#loading").css("display", "block");
           $("#nav-bar").css("margin-bottom", "0px");
         },
-        success: function (data) {
+        success: async function (data) {
           if (data.Plot != undefined) {
+            var searchYoutube=data.Title;
+            searchYoutube=searchYoutube.replace(" ","%20");
+            var id;
+            var url="https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyCzhURMeIgi3My9kkefx5gWTWY3pjg2qnc&q="+searchYoutube+"%20trailer&type=video&part=snippet&videoEmbeddable=true"
+            var dat=await $.get(url)
+            id=dat.items[0].id.videoId;
             document.getElementById("do-the-change").innerHTML = `
           <div id="main"class="column-flex">
           <div id="nav-bar">
@@ -202,6 +208,14 @@ $("body").delegate(
         <div>
           <h3>Genre</h3>
           <br />${data.Genre}
+        </div>
+        <hr style="width: 98vw" />
+        <div>
+          <h3>Trailer</h3>
+          <center><iframe width="720" height="405" src="https://www.youtube.com/embed/${id}" 
+          title="YouTube video player" frameborder="0" allow="accelerometer; 
+          autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe></center>
         </div>
         <hr style="width: 98vw" />
         <div>
@@ -264,14 +278,14 @@ function list() {
           if (!zmap[`${opt[o].imdbID}`]) {
             $("ul").append(
               `<li s="${opt[o].imdbID}" class="open-detail">
-              <span style="margin-left:8px">${opt[o].Title}</span>
+              <span style="margin-left:8px" s="${opt[o].imdbID}">${opt[o].Title}</span>
               <span style="margin-right:8px;"><i s="${opt[o].imdbID}" class="add-to-fav fa-regular fa-heart" style="color:white;font-size:25px"></i></span></li>
               `
             );
           } else {
             $("ul").append(
               `<li s="${opt[o].imdbID}" class="open-detail">
-              <span style="margin-left:8px">${opt[o].Title}</span>
+              <span style="margin-left:8px" s="${opt[o].imdbID}">${opt[o].Title}</span>
               <span style="margin-right:8px"><i s="${opt[o].imdbID}" class="remove-fav fa-solid fa-heart" style="color:red;font-size:25px"></i></span></li>
               `
             );
