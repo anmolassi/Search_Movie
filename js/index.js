@@ -321,7 +321,7 @@ function backWallpaper() {
     //     Math.floor(Math.random() * (1500 - 13 + 1)) + 13
     //   }.webp" alt="hi">`
     // );
-    $.get("https://anmol-assi-api.onrender.com/getRandomImage",function(data){
+    $.get("https://assi-random-poster-image.onrender.com/getRandomImage/18mgUTY8iUuNNI7dv8Pqhk3vTveh7Iz5",function(data){
       wall.append(
         `<img class="card-overlay"onerror='this.style.display = "none"' src=${data.path} alt="hi">`
       );
