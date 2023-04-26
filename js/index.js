@@ -168,12 +168,17 @@ $("body").delegate(
         },
         success: async function (data) {
           if (data.Plot != undefined) {
-            var searchYoutube=data.Title;
-            searchYoutube=searchYoutube.replace(" ","%20");
+            var searchYoutube = data.Title;
+            searchYoutube = searchYoutube.replace(" ", "%20");
             var id;
-            var url="https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyCzhURMeIgi3My9kkefx5gWTWY3pjg2qnc&q="+searchYoutube+"%20trailer"+data.Year+"&type=video&part=snippet&videoEmbeddable=true"
-            var dat=await $.get(url)
-            id=dat.items[0].id.videoId;
+            var url =
+              "https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyCzhURMeIgi3My9kkefx5gWTWY3pjg2qnc&q=" +
+              searchYoutube +
+              "%20trailer" +
+              data.Year +
+              "&type=video&part=snippet&videoEmbeddable=true";
+            var dat = await $.get(url);
+            id = dat.items[0].id.videoId;
             document.getElementById("do-the-change").innerHTML = `
           <div id="main"class="column-flex">
           <div id="nav-bar">
@@ -321,11 +326,21 @@ function backWallpaper() {
     //     Math.floor(Math.random() * (1500 - 13 + 1)) + 13
     //   }.webp" alt="hi">`
     // );
-    $.get("https://assi-random-poster-image.onrender.com/getRandomImage/18mgUTY8iUuNNI7dv8Pqhk3vTveh7Iz5",function(data){
-      wall.append(
-        `<img class="card-overlay"onerror='this.style.display = "none"' src=${data.path} alt="hi">`
-      );
-    })
+    // $.get("https://assi-random-poster-image.onrender.com/getRandomImage/18mgUTY8iUuNNI7dv8Pqhk3vTveh7Iz5",function(data){
+    //   wall.append(
+    //     `<img class="card-overlay"onerror='this.style.display = "none"' src=${data.path} alt="hi">`
+    //   );
+    // })
+    $.ajax({
+      url: `https://assi-random-poster-image.onrender.com/getRandomImage/18mgUTY8iUuNNI7dv8Pqhk3vTveh7Iz5`,
+      type: "get",
+      success: async function (data) {
+        var wall = $("#background-wallpaper");
+        wall.append(
+          `<img class="card-overlay"onerror='this.style.display = "none"' src=${data.path} alt="hi">`
+        );
+      },
+    });
   }
 }
 //window loader, on very first opening of website
