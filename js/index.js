@@ -332,7 +332,7 @@ function backWallpaper() {
     //   );
     // })
     $.ajax({
-      url: `https://assi-random-poster-image.onrender.com/getRandomImage/18mgUTY8iUuNNI7dv8Pqhk3vTveh7Iz5`,
+      url: `https://assi-random-poster-image.onrender.com/getRandomImage/o7zTdJM9doLjBfAzIWjiXsWxxtRwyHGv`,
       type: "get",
       success: async function (data) {
         var wall = $("#background-wallpaper");
