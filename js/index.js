@@ -326,13 +326,13 @@ function backWallpaper() {
     //     Math.floor(Math.random() * (1500 - 13 + 1)) + 13
     //   }.webp" alt="hi">`
     // );
-    // $.get("https://assi-random-poster-image.onrender.com/getRandomImage/18mgUTY8iUuNNI7dv8Pqhk3vTveh7Iz5",function(data){
+    // $.get("https://anmol-assi-movie-poster-api.azurewebsites.net/getRandomImage/18mgUTY8iUuNNI7dv8Pqhk3vTveh7Iz5",function(data){
     //   wall.append(
     //     `<img class="card-overlay"onerror='this.style.display = "none"' src=${data.path} alt="hi">`
     //   );
     // })
     $.ajax({
-      url: `https://assi-random-poster-image.onrender.com/getRandomImage/o7zTdJM9doLjBfAzIWjiXsWxxtRwyHGv`,
+      url: `https://anmol-assi-movie-poster-api.azurewebsites.net/getRandomImage/o7zTdJM9doLjBfAzIWjiXsWxxtRwyHGv`,
       type: "get",
       success: async function (data) {
         var wall = $("#background-wallpaper");
