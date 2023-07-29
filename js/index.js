@@ -190,7 +190,7 @@ $("body").delegate(
       <div id="show-info">
         <h1>${data.Title}</h1>
         <div id="img-plot">
-          <div style="background-color: black">
+          <div style="background-color: black;display: flex;justify-content: center;align-items: center;">
             <img
               src="${data.Poster}"
               style="height: 42rem;

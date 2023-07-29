@@ -225,7 +225,7 @@ iframe {
 }
 @media screen and (max-width: 998px) {
   html{
-    font-size: 72%;
+    font-size: 70%;
   }
   #container,#hover-poster{
     display: none;
@@ -248,7 +248,6 @@ iframe {
   }
   #show-info {
     overflow: hidden;
-    padding-left: 1rem;
     width: 97vw;
   }
   /* #list-view{
@@ -264,7 +263,7 @@ iframe {
 }
 @media screen and (max-width: 768px) {
   html{
-    font-size: 47%;
+    font-size: 45%;
   }
   iframe {
     width: 41rem;
