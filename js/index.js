@@ -174,7 +174,7 @@ $("body").delegate(
             var url =
               "https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyCzhURMeIgi3My9kkefx5gWTWY3pjg2qnc&q=" +
               searchYoutube +
-              "%20trailer" +
+              "%20trailer%20" +
               data.Year +
               "&type=video&part=snippet&videoEmbeddable=true";
             var dat = await $.get(url);
