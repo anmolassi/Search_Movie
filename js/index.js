@@ -398,8 +398,7 @@ function display_poster_list() {
           } else {
             $("#list-view").append(
               `<div s="${opt[o].imdbID}" class=" picture-list-item">
-                <img src='${opt[o].Poster}' s="${opt[o].imdbID}" style="width:19vw;
-                height: 50vh;">
+                <img src='${opt[o].Poster}' s="${opt[o].imdbID}" >
                 <span style="margin-left:0.8rem" s="${opt[o].imdbID}" >${opt[o].Title}</span>
                 <span style="margin-right:0.8rem"><i s="${opt[o].imdbID}" class="remove-fav fa-solid fa-heart" style="color:red;font-size:2.5rem"></i></span>
                 </div>
