@@ -169,7 +169,7 @@ $("body").delegate(
         success: async function (data) {
           if (data.Plot != undefined) {
             var searchYoutube = data.Title;
-            searchYoutube = searchYoutube.replace(" ", "%20");
+            // searchYoutube = searchYoutube.replace(" ", "%20");
             var id;
             var url =
               "https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyCzhURMeIgi3My9kkefx5gWTWY3pjg2qnc&q=" +
