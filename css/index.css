@@ -10,6 +10,8 @@ body {
   /* overflow: hidden; */
 }
 #do-the-change {
+  position: absolute;
+  top:6rem;
   width: 100vw;
 }
 #background-wallpaper {
@@ -61,6 +63,7 @@ li {
   cursor: pointer;
   width: 8rem;
   height: 4.2rem;
+  font-size: 1.4rem;
 }
 #hover-poster {
   width: 40vw;
@@ -101,6 +104,9 @@ li {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: fixed;
+  top:0;
+  left:0;
   background-color: black;
   width: 100vw;
   height: 6rem;
@@ -113,6 +119,7 @@ li {
   flex-direction: column;
 }
 #favourites {
+  font-size: 1.4rem;
   background-color: red;
   width: 8rem;
   height: 4.19rem;
@@ -211,7 +218,7 @@ li {
 }
 @media screen and (max-width: 998px) {
   html{
-    font-size: 55%;
+    font-size: 70%;
   }
   #container,#hover-poster{
     display: none;
@@ -219,7 +226,7 @@ li {
   .row-flex {
     margin-bottom: auto;
     margin-top: auto;
-    height: 100vh;
+    height: 90vh;
   }
   #img-plot {
     margin-left: auto;
@@ -236,7 +243,7 @@ li {
     overflow: hidden;
     padding-left: 1rem;
     width: 97vw;
-}
+  }
 }
 @media screen and (max-width: 768px) {
   html{
