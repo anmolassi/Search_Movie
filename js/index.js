@@ -26,11 +26,11 @@ $("div").delegate(".add-to-fav", "click", function (event) {
   localStorage.zmap = JSON.stringify(zmap);
   if (search_page) {
     event.target.className = "remove-fav fa-solid fa-heart";
-    event.target.style = "color:red;font-size:25px";
+    event.target.style = "color:red;font-size:2.5rem";
   } else {
     console.log(event.target);
     event.target.className = "remove-fav fa-solid fa-heart";
-    event.target.style = "color:red;font-size:25px";
+    event.target.style = "color:red;font-size:2.5rem";
   }
 });
 $("div").delegate(".remove-fav", "click", function (event) {
@@ -40,10 +40,10 @@ $("div").delegate(".remove-fav", "click", function (event) {
   localStorage.zmap = JSON.stringify(zmap);
   if (search_page) {
     event.target.className = "add-to-fav fa-regular fa-heart";
-    event.target.style = "color:white;font-size:25px";
+    event.target.style = "color:white;font-size:2.5rem";
   } else {
     event.target.className = "add-to-fav fa-regular fa-heart";
-    event.target.style = "color:white;font-size:25px";
+    event.target.style = "color:white;font-size:2.5rem";
   }
 });
 // to restore back from basic display of info of movie on hover on movie name
@@ -59,8 +59,8 @@ $("body").delegate(".open-detail", "mouseleave", function (event) {
     setTimeout(async () => {
       k -= 0.03;
       console.log("hello");
-      $("#poster-display").css("width", `${imgwidth * k}px`);
-      $("#poster-display").css("height", `${imgheight * k}px`);
+      $("#poster-display").css("width", `${imgwidth * k}rem`);
+      $("#poster-display").css("height", `${imgheight * k}rem`);
       $("#container").css("padding", `${5.5 * k}vh`);
       $("#details-container").css("font-size", `${5 * k}vh`);
     }, 10 * i);
@@ -76,7 +76,7 @@ $("body").delegate(".open-detail", "mouseenter", function (event) {
     type: "get",
     beforeSend: function () {
       $("#loading").css("display", "block");
-      $("#nav-bar").css("margin-bottom", "0px");
+      $("#nav-bar").css("margin-bottom", "0rem");
     },
     success: function (data) {
       $("#poster-display").attr("src", `${data.Poster}`);
@@ -102,8 +102,8 @@ $("body").delegate(".open-detail", "mouseenter", function (event) {
           setTimeout(async () => {
             k += 0.03;
             console.log("hello");
-            $("#poster-display").css("width", `${imgwidth * k}px`);
-            $("#poster-display").css("height", `${imgheight * k}px`);
+            $("#poster-display").css("width", `${imgwidth * k*0.1}rem`);
+            $("#poster-display").css("height", `${imgheight * k*0.1}rem`);
             $("#container").css("padding", `${5.5 * k}vh`);
             $("#details-container").css("font-size", `${5 * k}vh`);
           }, 10 * i);
@@ -112,7 +112,7 @@ $("body").delegate(".open-detail", "mouseenter", function (event) {
     },
     complete: function (data) {
       $("#loading").css("display", "none");
-      $("#nav-bar").css("margin-bottom", "3px");
+      $("#nav-bar").css("margin-bottom", "0.3rem");
     },
   });
 });
@@ -164,7 +164,7 @@ $("body").delegate(
         type: "get",
         beforeSend: function () {
           $("#loading").css("display", "block");
-          $("#nav-bar").css("margin-bottom", "0px");
+          $("#nav-bar").css("margin-bottom", "0rem");
         },
         success: async function (data) {
           if (data.Plot != undefined) {
@@ -193,7 +193,9 @@ $("body").delegate(
           <div style="background-color: black">
             <img
               src="${data.Poster}"
-              style="height: 50vh; width: 40vh; padding: 5vh"
+              style="height: 42rem;
+                width: 31rem;
+                padding: 1rem;"
             />
           </div>
   
@@ -217,7 +219,7 @@ $("body").delegate(
         <hr style="width: 98vw" />
         <div>
           <h3>Trailer</h3>
-          <center><iframe width="720" height="405" src="https://www.youtube.com/embed/${id}" 
+          <center><iframe src="https://www.youtube.com/embed/${id}" 
           title="YouTube video player" frameborder="0" allow="accelerometer; 
           autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen></iframe></center>
@@ -255,7 +257,7 @@ $("body").delegate(
         },
         complete: function (data) {
           $("#loading").css("display", "none");
-          $("#nav-bar").css("margin-bottom", "3px");
+          $("#nav-bar").css("margin-bottom", "0.3rem");
         },
       });
     }
@@ -273,7 +275,7 @@ function list() {
     type: "get",
     beforeSend: function () {
       $("#loading").css("display", "block");
-      $("#nav-bar").css("margin-bottom", "0px");
+      $("#nav-bar").css("margin-bottom", "0rem");
     },
     success: function (data) {
       let opt = data.Search;
@@ -283,15 +285,15 @@ function list() {
           if (!zmap[`${opt[o].imdbID}`]) {
             $("ul").append(
               `<li s="${opt[o].imdbID}" class="open-detail">
-              <span style="margin-left:8px" s="${opt[o].imdbID}">${opt[o].Title}</span>
-              <span style="margin-right:8px;"><i s="${opt[o].imdbID}" class="add-to-fav fa-regular fa-heart" style="color:white;font-size:25px"></i></span></li>
+              <span style="margin-left:0.8rem" s="${opt[o].imdbID}">${opt[o].Title}</span>
+              <span style="margin-right:0.8rem;"><i s="${opt[o].imdbID}" class="add-to-fav fa-regular fa-heart" style="color:white;font-size:2.5rem"></i></span></li>
               `
             );
           } else {
             $("ul").append(
               `<li s="${opt[o].imdbID}" class="open-detail">
-              <span style="margin-left:8px" s="${opt[o].imdbID}">${opt[o].Title}</span>
-              <span style="margin-right:8px"><i s="${opt[o].imdbID}" class="remove-fav fa-solid fa-heart" style="color:red;font-size:25px"></i></span></li>
+              <span style="margin-left:0.8rem" s="${opt[o].imdbID}">${opt[o].Title}</span>
+              <span style="margin-right:0.8rem"><i s="${opt[o].imdbID}" class="remove-fav fa-solid fa-heart" style="color:red;font-size:2.5rem"></i></span></li>
               `
             );
           }
@@ -300,15 +302,15 @@ function list() {
     },
     complete: function (data) {
       $("#loading").css("display", "none");
-      $("#nav-bar").css("margin-bottom", "3px");
+      $("#nav-bar").css("margin-bottom", "0.3rem");
     },
   });
 }
 //for continous update of the movie search list
 setInterval(function () {
   if (search.val() == "") {
-    $("#poster-display").css("width", `0px`);
-    $("#poster-display").css("height", `0px`);
+    $("#poster-display").css("width", `0rem`);
+    $("#poster-display").css("height", `0rem`);
     $("#container").css("padding", `0vh`);
     $("#details-container").css("font-size", `0vh`);
   }
@@ -321,27 +323,21 @@ function backWallpaper() {
   var wall = $("#background-wallpaper");
   document.getElementById("background-wallpaper").innerHTML = "";
   for (let i = 0; i < 90; i++) {
-    // wall.append(
-    //   `<img class="card-overlay"onerror='this.style.display = "none"' src="https://randommer.io/images/movies/${
-    //     Math.floor(Math.random() * (1500 - 13 + 1)) + 13
-    //   }.webp" alt="hi">`
-    // );
-    // $.get("https://anmol-assi-movie-poster-api.azurewebsites.net/getRandomImage/18mgUTY8iUuNNI7dv8Pqhk3vTveh7Iz5",function(data){
-    //   wall.append(
-    //     `<img class="card-overlay"onerror='this.style.display = "none"' src=${data.path} alt="hi">`
-    //   );
-    // })
     $.ajax({
       url: `https://anmol-assi-movie-poster-api.azurewebsites.net/getRandomImage/o7zTdJM9doLjBfAzIWjiXsWxxtRwyHGv`,
       type: "get",
       success: async function (data) {
         var wall = $("#background-wallpaper");
         wall.append(
-          `<img class="card-overlay"onerror='this.style.display = "none"' src=${data.path} alt="hi">`
+          `<img class="card-overlay" onerror='this.style.display = "none"' src=${data.path} alt="hi">`
         );
       },
     });
   }
+  // var cardOverlay=document.getElementsByClassName("card-overlay");
+  // for(let i=0;i<90;i++){
+  //   cardOverlay[i].style.display="inline"
+  // }
 }
 //window loader, on very first opening of website
 window.onload = function () {
@@ -380,7 +376,7 @@ function display_poster_list() {
     type: "get",
     beforeSend: function () {
       $("#loading").css("display", "block");
-      $("#nav-bar").css("margin-bottom", "0px");
+      $("#nav-bar").css("margin-bottom", "0rem");
     },
     success: function (data) {
       let opt = data.Search;
@@ -391,9 +387,9 @@ function display_poster_list() {
             $("#list-view").append(
               `<div s="${opt[o].imdbID}" class=" picture-list-item">
                 <img src='${opt[o].Poster}' s="${opt[o].imdbID}" class="">
-                <span style="margin-left:8px" s="${opt[o].imdbID}"class="">${opt[o].Title}</span>
-                <span style="margin-right:8px;">
-                <i s="${opt[o].imdbID}" s="${opt[o].imdbID}"class="add-to-fav fa-regular fa-heart" style="color:white;font-size:25px">
+                <span style="margin-left:0.8rem" s="${opt[o].imdbID}"class="">${opt[o].Title}</span>
+                <span style="margin-right:0.8rem;">
+                <i s="${opt[o].imdbID}" s="${opt[o].imdbID}"class="add-to-fav fa-regular fa-heart" style="color:white;font-size:2.5rem">
                 </i>
                 </span>
                 </div>
@@ -404,8 +400,8 @@ function display_poster_list() {
               `<div s="${opt[o].imdbID}" class=" picture-list-item">
                 <img src='${opt[o].Poster}' s="${opt[o].imdbID}" style="width:19vw;
                 height: 50vh;">
-                <span style="margin-left:8px" s="${opt[o].imdbID}" >${opt[o].Title}</span>
-                <span style="margin-right:8px"><i s="${opt[o].imdbID}" class="remove-fav fa-solid fa-heart" style="color:red;font-size:25px"></i></span>
+                <span style="margin-left:0.8rem" s="${opt[o].imdbID}" >${opt[o].Title}</span>
+                <span style="margin-right:0.8rem"><i s="${opt[o].imdbID}" class="remove-fav fa-solid fa-heart" style="color:red;font-size:2.5rem"></i></span>
                 </div>
                 `
             );
@@ -415,7 +411,7 @@ function display_poster_list() {
     },
     complete: function (data) {
       $("#loading").css("display", "none");
-      $("#nav-bar").css("margin-bottom", "3px");
+      $("#nav-bar").css("margin-bottom", "0.3rem");
     },
   });
 }
@@ -435,15 +431,15 @@ function displayfavorites() {
       type: "get",
       beforeSend: function () {
         $("#loading").css("display", "block");
-        $("#nav-bar").css("margin-bottom", "0px");
+        $("#nav-bar").css("margin-bottom", "0rem");
       },
       success: function (data) {
         $("#list-view").append(
           `<div s="${data.imdbID}" id="${data.imdbID}" class="picture-list-item">
             <img src='${data.Poster}' s="${data.imdbID}" class="">
-            <span style="margin-left:8px" s="${data.imdbID}"class="">${data.Title}</span>
-            <span style="margin-right:8px;">
-            <i s="${data.imdbID}" s="${data.imdbID}"class="remove-fav-favpage fa-solid fa-heart" style="color:red;font-size:25px">
+            <span style="margin-left:0.8rem" s="${data.imdbID}"class="">${data.Title}</span>
+            <span style="margin-right:0.8rem;">
+            <i s="${data.imdbID}" s="${data.imdbID}"class="remove-fav-favpage fa-solid fa-heart" style="color:red;font-size:2.5rem">
             </i>
             </span>
             </div>
@@ -452,7 +448,7 @@ function displayfavorites() {
       },
       complete: function (data) {
         $("#loading").css("display", "none");
-        $("#nav-bar").css("margin-bottom", "3px");
+        $("#nav-bar").css("margin-bottom", "0.3rem");
       },
     });
   }
