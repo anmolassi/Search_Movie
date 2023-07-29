@@ -123,7 +123,7 @@ $("body").delegate("#back-search", "click", function (event) {
   <div id="main"class="column-flex">
         <form action="" >
           <div id="nav-bar">
-            <div><img src="assests/logo.png" alt="" width="80vw"></div>
+            <div><img src="assests/logo.png" alt="" width="50rem"></div>
             <div style="display: flex">
               <input type="text" placeholder="movie" value="" id="search-movie" />
               <button type="submit" id="search-btn">Search</button>
@@ -182,7 +182,7 @@ $("body").delegate(
             document.getElementById("do-the-change").innerHTML = `
           <div id="main"class="column-flex">
           <div id="nav-bar">
-          <div><img src="assests/logo.png" alt="" width="80vw" /></div>
+          <div><img src="assests/logo.png" alt="" width="50rem" /></div>
           <button id="back-search">Back</button>
           </div>
           <div id="loading"></div>
@@ -365,7 +365,7 @@ function display_poster_list() {
   document.getElementById("do-the-change").innerHTML = `
       <div id="main"class="column-flex">
       <div id="nav-bar">
-      <div><img src="assests/logo.png" alt="" width="80vw" /></div>
+      <div><img src="assests/logo.png" alt="" width="50rem" /></div>
       <button id="back-search">Back</button>
       </div>
       <div id="loading"></div>
@@ -419,7 +419,7 @@ function display_poster_list() {
 function displayfavorites() {
   document.getElementById("do-the-change").innerHTML = "";
   document.getElementById("do-the-change").innerHTML = `<div id="nav-bar">
-      <div><img src="assests/logo.png" alt="" width="80vw" /></div>
+      <div><img src="assests/logo.png" alt="" width="50rem" /></div>
       <div><h1>FAVORITES</h1></div>
       <button id="back-search">Back</button>
       

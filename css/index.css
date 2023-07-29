@@ -1,5 +1,5 @@
 html{
-  font-size: 62.5%;
+  font-size: 71%;
 }
 body {
   margin: 0;
@@ -100,6 +100,10 @@ li {
   max-height: 30vh;
   max-width: 25vw;
 }
+iframe {
+  width: 59rem;
+  height: 33rem;
+}
 #nav-bar {
   display: flex;
   justify-content: space-around;
@@ -158,8 +162,8 @@ li {
   height: auto;
 }
 .picture-list-item img {
-  width: 19vw;
-  height: 50vh;
+  width: 20rem;
+  height: 25rem;
 }
 #show-info {
   font-size: 1.6rem;
@@ -196,6 +200,9 @@ li {
   to {
     width: 100vw;
   }
+}
+#list-view div span{
+  font-size: 1.5rem;
 }
 @media screen and (max-width: 1250px) {
   #background-wallpaper img {
@@ -244,9 +251,27 @@ li {
     padding-left: 1rem;
     width: 97vw;
   }
+  /* #list-view{
+    flex-direction: column;
+  } */
+  .picture-list-item img {
+    width: 18rem;
+    height: 32rem;
+}
+  #list-view div span{
+    font-size: 1.5rem;
+  }
 }
 @media screen and (max-width: 768px) {
   html{
-    font-size: 45%;
+    font-size: 47%;
+  }
+  iframe {
+    width: 41rem;
+    height: 23rem;
+  }
+  .picture-list-item img {
+    width: 32rem;
+    height: 45rem;
   }
 }
