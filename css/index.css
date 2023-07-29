@@ -225,7 +225,7 @@ iframe {
 }
 @media screen and (max-width: 998px) {
   html{
-    font-size: 70%;
+    font-size: 72%;
   }
   #container,#hover-poster{
     display: none;
