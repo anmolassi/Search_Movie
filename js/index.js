@@ -171,12 +171,27 @@ $("body").delegate(
             var searchYoutube = data.Title;
             // searchYoutube = searchYoutube.replace(" ", "%20");
             var id;
-            var url =
-              "https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyCzhURMeIgi3My9kkefx5gWTWY3pjg2qnc&q=" +
+            var url="";
+            if(data.Director!='N/A'){
+              url="https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyCzhURMeIgi3My9kkefx5gWTWY3pjg2qnc&q=" +
               searchYoutube +
               "%20trailer%20" +
               // data.Year +
+              data.Director + 
               "&type=video&part=snippet&videoEmbeddable=true";
+            }else{
+              "https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyCzhURMeIgi3My9kkefx5gWTWY3pjg2qnc&q=" +
+              searchYoutube +
+              "%20trailer%20" +
+              "&type=video&part=snippet&videoEmbeddable=true";
+            }
+            // var url =
+            //   "https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyCzhURMeIgi3My9kkefx5gWTWY3pjg2qnc&q=" +
+            //   searchYoutube +
+            //   "%20trailer%20" +
+            //   // data.Year +
+            //   data.Director + 
+            //   "&type=video&part=snippet&videoEmbeddable=true";
             var dat = await $.get(url);
             id = dat.items[0].id.videoId;
             document.getElementById("do-the-change").innerHTML = `
