@@ -172,7 +172,7 @@ $("body").delegate(
             // searchYoutube = searchYoutube.replace(" ", "%20");
             var id;
             var url="";
-            if(data.Director!='N/A'){
+            if(data.Director!='N/A'&&data.Language!='Hindi'){
               url="https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyCzhURMeIgi3My9kkefx5gWTWY3pjg2qnc&q=" +
               searchYoutube +
               "%20trailer%20" +
