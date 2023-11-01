@@ -180,7 +180,7 @@ $("body").delegate(
               data.Director + 
               "&type=video&part=snippet&videoEmbeddable=true";
             }else{
-              "https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyCzhURMeIgi3My9kkefx5gWTWY3pjg2qnc&q=" +
+              url="https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyCzhURMeIgi3My9kkefx5gWTWY3pjg2qnc&q=" +
               searchYoutube +
               "%20trailer%20" +
               "&type=video&part=snippet&videoEmbeddable=true";
