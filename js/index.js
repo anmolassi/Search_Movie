@@ -339,7 +339,7 @@ function backWallpaper() {
   document.getElementById("background-wallpaper").innerHTML = "";
   for (let i = 0; i < 90; i++) {
     $.ajax({
-      url: `https://anmol-assi-movie-poster-api.azurewebsites.net/getRandomImage/o7zTdJM9doLjBfAzIWjiXsWxxtRwyHGv`,
+      url: `https://anmol-assi-mpp-api.azurewebsites.net/getRandomImage/o7zTdJM9doLjBfAzIWjiXsWxxtRwyHGv`,
       type: "get",
       success: async function (data) {
         var wall = $("#background-wallpaper");
